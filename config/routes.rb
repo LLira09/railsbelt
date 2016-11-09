@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  root 'users#index'
+  get 'main' => 'users#index'
+  get 'songs' => 'users#dashboard' #user dashboard
+  post 'users/create' => 'users#create' #create user
+  post 'sessions' => 'sessions#create' #login
+  post 'add/song' => 'songs#create' #add song
+  get 'song/:id' => 'songs#show' #show song
+  get 'users/:id' => 'users#show' #show user playlist
+  delete 'sessions/destroy' => 'sessions#destroy' #logout
+  post 'playlists_add' => 'playlists#create' #adding to playlists
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

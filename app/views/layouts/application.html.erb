@@ -8,6 +8,15 @@
 </head>
 <body>
 
+  <% if flash[:messages] %>
+  <%flash[:messages].each do |a|%>
+  <p><%= a%></p>
+  <% end %>
+  <% end %>
+  <% if session[:user_id]%>
+    <a href="/sessions/destroy" data-method='delete'>Log Out</a>
+  <%end%>
+
 <%= yield %>
 
 </body>
